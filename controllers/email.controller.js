@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 class EmailController {
 
     postEmail = async (req, res) => {
-        const {study, computer, description} = req.body;
+        const {study, computer, description, ip, iron} = req.body;
         const to = process.env.MAIL_TO;
 
         console.log(Boolean(+process.env.MAIL_SECURE))
@@ -24,8 +24,8 @@ class EmailController {
             from: process.env.MAIL_USER,
             to,
             subject: "Письмо в тех. поддержку",
-            text: `${study} ${computer} ${description}`,
-            html: `<b>${study} ${computer} ${description}</b>`,
+            text: `Cabinet: ${study}, Computer: ${computer}, IP: ${ip}, IRON: ${iron}, Desc: ${description}`,
+            html: `<b>Trouble at ${study}</b>`,
         }, (error) => {
             if (error) {
                 console.log(error);
