@@ -25,7 +25,7 @@ class EmailController {
             to,
             subject: "Письмо в тех. поддержку",
             text: `Cabinet: ${study}, Computer: ${computer}, IP: ${ip}, IRON: ${iron}, Desc: ${description}`,
-            html: `<b>Trouble at ${study}</b>`,
+            html: `<b> Cabinet: ${study}, Computer: ${computer}, IP: ${ip}, IRON: ${iron}, Desc: ${description} </b>`,
         }, (error) => {
             if (error) {
                 console.log(error);
